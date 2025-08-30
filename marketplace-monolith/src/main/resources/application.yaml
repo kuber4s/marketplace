@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: marketplace-monolith
+  data:
+    mongodb:
+      uri: mongodb://host.docker.internal:27017/marketplace
+      database: marketplace
+
+server:
+  servlet:
+    context-path: /backend
+  port: 8080
