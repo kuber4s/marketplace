@@ -21,6 +21,13 @@ public class ProductController {
         return ResponseEntity.ok(service.getAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getById(@PathVariable String id) {
+        return service.getById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     public ResponseEntity<Product> create(@RequestBody Product product) {
         Product savedProduct = service.create(product);
